@@ -41,22 +41,9 @@ public String row(int i) throws Exception {
   if (i < 0 || i >= this.height()) {
     throw new Exception("Invalid row " + i);
   }
-  // make an array for each row of the content
-  String[] rows = new String[this.height()];
-  for (int j = 0; j < this.height(); j++) {
-    rows[j] = this.myblock.row(j);
-  } 
-
-  // reverse order by use of indices
-  int length = rows.length;
-  for (int beg = 0; beg < length / 2; beg++) {
-      int end = length - beg - 1;
-      String temp = rows[beg];
-      rows[beg] = rows[end];
-      rows[end] = temp;
-  }
-  // return array into String
-  return rows[i].toString();
+int rowNum = this.height();
+return this.myblock.row(rowNUm - 1 - i);
+  
 }
 
 /**
